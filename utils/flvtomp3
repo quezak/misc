@@ -1,0 +1,12 @@
+#!/bin/sh
+# this script should convert files from FLV to WAV and then to MP3
+infile_name="$@"
+# exit if the user did not enter anything:
+if [ -z "$infile_name" ]; then
+    echo "usage: $0 <files>"
+    exit
+fi
+echo " "
+ffmpeg -i "$infile_name" -acodec pcm_s16le -ac 2 -ab 128k -vn -y "${infile_name}.wav"
+lame --preset cd "${infile_name}.wav" "`basename "${infile_name}"`.mp3"
+rm "${infile_name}.wav"

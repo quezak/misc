@@ -1,0 +1,29 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+	echo "usage: $0 ESSID WEP-KEY"
+	exit 1
+fi
+
+if [ ${#2} -eq 5 ] || [ ${#2} -eq 13 ]; then
+	key="`asciitohex "$2"`";
+else 
+	key=$2;
+fi
+
+if ( [ ${#key} -ne 10 ] && [ ${#key} -ne 26 ] ) || [[ "$key" =~ [^0-9A-Fa-f] ]]; then
+	echo "Klucz ma złą długość lub zawiera znaki nieszesnastkowe"
+	exit 2
+fi
+
+cat >> /etc/wpa_supplicant/wpa_supplicant.conf << EOF
+network={
+	ssid="$1"
+	priority=2
+	key_mgmt=NONE
+	wep_key0=$key
+	wep_tx_keyidx=0
+}
+
+EOF
+
+echo -e "added network \033[1;32m${1}\033[0m with key \033[1;34m${key}\033[0m"

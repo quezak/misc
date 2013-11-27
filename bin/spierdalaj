@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ `whoami` = root ]; then
+  echo "OK..."
+  echo "3";sleep 1; echo "2";sleep 1; echo "1";sleep 1;
+  echo "Spierdalam..."
+  sleep 3
+  /sbin/halt
+else
+  echo "Wal sie..."
+fi

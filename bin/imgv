@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then feh -Tdefault .
+elif [ $# -eq 1 ]; then
+	if [ -d "$1" ]; then
+		feh -Tdefault "$1"
+	else
+		f=${1/`basename "$1"`}; if [ -z "$f" ]; then f='./'; fi
+		feh -Tdefault "$f" --start-at "$f`basename "$1"`"
+	fi
+else feh -Tdefault "$@"
+fi

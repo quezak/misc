@@ -1,0 +1,9 @@
+# This is not really a .desktop file like the rest, but it's useful to treat
+# it as such
+
+[GdmGreeterTheme]
+Greeter=greeter.xml
+Name=AGlanceIsEnough
+Description=by Peter Szvoboda
+Author=Modified by Peter Szvoboda
+Screenshot=screenshot.jpg

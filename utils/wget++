@@ -1,0 +1,39 @@
+#!/bin/bash
+if [ $# -lt 4 ]; then
+	echo "$# to za mało argumentów"
+	echo "usaż: wget++ (adres z @) (katalog) [zakresy]"
+	exit 1
+fi
+sauce="$@"
+nadr=""
+zm=0
+addr=$1
+dl=${#addr}
+cmd=""
+shift
+path=$1
+shift
+if [ ! -d "$path" ]; then
+	mkdir -p "$path";
+fi
+echo "$sauce" > "$path/source"
+for i in `seq 0 $dl`; do
+	if [ "${addr:$i:1}" == '@' ]; then
+		zm=$[$zm+1]
+		nadr="$nadr\${x$zm}"
+		cmd="$cmd for x$zm in \`seq -w $1 $2\`; do" 
+		shift
+		shift
+	else
+		nadr="$nadr${addr:$i:1}"
+	fi
+done
+cd $path
+cmd="$cmd echo $nadr; wget -q \"$nadr\";" 
+for i in `seq 1 $zm`; do
+	cmd="$cmd done;"
+done
+echo "$cmd" > __tmpsh
+chmod +x __tmpsh
+./__tmpsh
+rm __tmpsh

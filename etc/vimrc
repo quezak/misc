@@ -1,0 +1,81 @@
+" ---- copied from global vimrc -------------------------------------------
+scriptencoding utf-8
+set nocompatible
+set backspace=2
+set history=200
+set ruler
+set viminfo='20,\"500
+set numberwidth=3
+set modeline
+if &fileencodings !~? "ucs-bom"
+  set fileencodings^=ucs-bom
+endif
+if &fileencodings !~? "utf-8"
+  let g:added_fenc_utf8 = 1
+  set fileencodings+=utf-8
+endif
+if &fileencodings !~? "default"
+  set fileencodings+=default
+endif
+if &term ==? "gnome" && has("eval")
+  exec "set <C-Left>=\eO5D"
+  exec "set <C-Right>=\eO5C"
+endif
+
+" ---- my settings --------------------------------------------------------
+syntax on
+filetype plugin on
+filetype indent on
+
+" various settings
+set cinoptions=l1,g0,N-s
+set clipboard=unnamedplus
+set colorcolumn=-1
+set cursorline
+set diffopt=filler,iwhite,context:2
+set display+=uhex
+set fillchars=vert:║,fold:═,diff:░
+set formatoptions+=12nj
+set grepprg=grep\ -nH\ $*
+set hlsearch incsearch
+set laststatus=2
+set matchpairs+==:;
+set mouse=a
+set nowrap
+set number
+set pdev=pdf
+set popt=left:10mm,right:10mm,top:10mm,bottom:15mm,syntax:y,number:y,wrap:y,paper:A4
+set report=0
+set scrolloff=8
+set showcmd
+set showmatch
+set sidescrolloff=20
+set statusline=%f\ %y\ \{%{&ff}\}%(\ [%M%R]%)%=%{strftime(\"\%F\ \%T\",getftime(expand(\"\%\%\")))}%10.(%l:%c%)%6.p%%
+set textwidth=100
+set ts=4 sw=4 sts=4 expandtab
+set wildignore=*.o,*.aux,*.dvi.*.pdf
+set wildmenu
+set wildmode=longest:full
+
+let c_no_curly_error = 1
+let g:netrw_list_hide='^\.[^.].*,.*\~$,.*\.swp,.*\.bak'
+let g:tex_flavor='latex'
+
+" filetype-dependent
+au! FileType make setlocal noexpandtab
+
+" abbreviations
+cabbr help vert help
+iabbr DEBUG trace(LOG(DEBUG,NORMAL), 
+iabbr ERROR trace(LOG(ERROR,NORMAL), 
+iabbr TRACE trace(LOG(STD_LOG,NORMAL), 
+
+" sintax fixes
+syn match Error '\s\+$'
+hi ColorColumn ctermbg=darkgrey
+hi CursorLine cterm=NONE ctermbg=darkgrey
+hi CursorLineNr ctermfg=yellow ctermbg=darkgrey cterm=inverse,bold
+hi DiffAdd ctermbg=darkgray ctermfg=green
+hi DiffChange ctermbg=darkgray
+hi DiffDelete ctermbg=darkgray ctermfg=red cterm=NONE
+hi DiffText ctermbg=NONE cterm=standout,bold
