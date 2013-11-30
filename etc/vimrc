@@ -17,9 +17,24 @@ endif
 if &fileencodings !~? "default"
   set fileencodings+=default
 endif
+if &term ==? "xterm"
+  set t_Sb=^[4%dm
+  set t_Sf=^[3%dm
+  set ttymouse=xterm2
+endif
 if &term ==? "gnome" && has("eval")
   exec "set <C-Left>=\eO5D"
   exec "set <C-Right>=\eO5C"
+endif
+if "" == &shell
+  if executable("/bin/bash")
+    set shell=/bin/bash
+  elseif executable("/bin/sh")
+    set shell=/bin/sh
+  endif
+endif
+if has("eval")
+  let is_bash=1
 endif
 
 " ---- my settings --------------------------------------------------------
@@ -46,14 +61,14 @@ set number
 set pdev=pdf
 set popt=left:10mm,right:10mm,top:10mm,bottom:15mm,syntax:y,number:y,wrap:y,paper:A4
 set report=0
-set scrolloff=8
+set scrolloff=12
 set showcmd
 set showmatch
 set sidescrolloff=20
 set statusline=%f\ %y\ \{%{&ff}\}%(\ [%M%R]%)%=%{strftime(\"\%F\ \%T\",getftime(expand(\"\%\%\")))}%10.(%l:%c%)%6.p%%
 set textwidth=100
 set ts=4 sw=4 sts=4 expandtab
-set wildignore=*.o,*.aux,*.dvi.*.pdf
+set wildignore=*.o,*.aux,*.dvi,*.pdf
 set wildmenu
 set wildmode=longest:full
 

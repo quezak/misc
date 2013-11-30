@@ -8,7 +8,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # prompt
-if [ $EUID -eq 0 ]; then ucolor='00;33m'; else ucolor='00;37m'; fi
+if [ $EUID -eq 0 ]; then ucolor='00;37m'; else ucolor='00;33m'; fi
 PS1="\[\033[35m\]\$(printf '% 4d' \$?)\[\033[0m\]\[\033[01;32m\][\[\033[${ucolor}\]\u\[\033[01;31m\]@\[\033[00;32m\]\h\[\033[01;32m\]]\[\033[0;34m\]\w\[\033[01;31m\]>: \[\033[00m\]"
 PS2="\[\033[1;31m\]>:\[\033[0m\]"
 unset ucolor
@@ -48,3 +48,4 @@ fi
 # aliases
 alias wtf='sudo tail -f /var/log/messages'
 alias vtf='sudo vim /var/log/messages'
+alias PGG='ping 8.8.8.8'
