@@ -29,7 +29,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-    if [ -f "~/.LS_COLORS" ]; then
+    if [ -r "$HOME/.LS_COLORS" ]; then
         eval $( dircolors -b ~/.LS_COLORS )
     fi
 fi
@@ -37,12 +37,12 @@ fi
 # env
 export GNOME_DISABLE_CRASH_DIALOG=1
 export PATH="$PATH:$HOME/bin"
-export EDITOR='/usr/bin/vim'
+export EDITOR='vim'
 if [ -e "$(which vimpager 2>/dev/null)" ]; then
     export PAGER=$(which vimpager)
 fi
 if [ -e "$(which vimmanpager 2>/dev/null)" ]; then
-    export PAGER=$(which vimmanpager)
+    export MANPAGER=$(which vimmanpager)
 fi
 
 # aliases
