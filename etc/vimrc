@@ -94,3 +94,4 @@ hi DiffAdd ctermbg=darkgray ctermfg=green
 hi DiffChange ctermbg=darkgray
 hi DiffDelete ctermbg=darkgray ctermfg=red cterm=NONE
 hi DiffText ctermbg=NONE cterm=standout,bold
+hi LineNr ctermbg=darkgray
