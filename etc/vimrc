@@ -77,14 +77,8 @@ let c_no_curly_error = 1
 let g:netrw_list_hide='^\.[^.].*,.*\~$,.*\.swp,.*\.bak'
 let g:tex_flavor='latex'
 
-" filetype-dependent
-au! FileType make setlocal noexpandtab
-
 " abbreviations
 cabbr help vert help
-iabbr DEBUG trace(LOG(DEBUG,NORMAL), 
-iabbr ERROR trace(LOG(ERROR,NORMAL), 
-iabbr TRACE trace(LOG(STD_LOG,NORMAL), 
 
 " sintax fixes
 syn match Error '\s\+$'
@@ -96,3 +90,7 @@ hi DiffChange ctermbg=darkgray
 hi DiffDelete ctermbg=darkgray ctermfg=red cterm=NONE
 hi DiffText ctermbg=NONE cterm=standout,bold
 hi LineNr ctermbg=darkgray
+
+" filetype-dependent
+au! FileType make setlocal noexpandtab
+
