@@ -79,6 +79,8 @@ let g:tex_flavor='latex'
 
 " abbreviations
 cabbr help vert help
+nmap <C-H> :nohl<CR>
+imap <C-H> <ESC>:nohl<CR>i
 
 " sintax fixes
 syn match Error '\s\+$'
