@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "usage: $0 first-file [next-file|- next-file] [...]"
+    echo -e "\topen files in vim splitted"
+    echo -e "\tstart vim with first-file, then do :vsplit next-file for each next argument"
+    echo -e "\tif the argument before next-file was '-', :split is used instead for this file"
+    exit 1
+fi
+
+cmd="vim $1"
+shift
+
+while [ $# -gt 0 ]; do
+    if [ "$1" = "-" ]; then
+        cmd="$cmd -c \":split $2\""
+        shift 2
+    else
+        cmd="$cmd -c \":vsplit $1\""
+        shift
+    fi
+done
+
+echo $cmd
+eval $cmd
