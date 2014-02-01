@@ -81,6 +81,10 @@ let g:tex_flavor='latex'
 cabbr help vert help
 nmap <C-H> :nohl<CR>
 imap <C-H> <ESC>:nohl<CR>i
+imap <C-W><Left> <ESC><C-W><Left>i
+imap <C-W><Right> <ESC><C-W><Right>i
+imap <C-W><Up> <ESC><C-W><Up>i
+imap <C-W><Down> <ESC><C-W><Down>i
 
 " sintax fixes
 syn match Error '\s\+$'
