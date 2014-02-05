@@ -4,6 +4,8 @@
 # history
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 HISTCONTROL=ignoreboth
+HISTSIZE=5000
+HISTFILESIZE=5000
 shopt -s histappend
 shopt -s checkwinsize
 
