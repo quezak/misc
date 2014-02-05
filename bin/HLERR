@@ -13,10 +13,12 @@ wf=$(echo -en '\033[0;33m')
 wl=$(echo -en '\033[1;33m')
 ty=$(echo -en '\033[0;32m')
 fn=$(echo -en '\033[0;36m')
+wh=$(echo -en '\033[0;37m')
 fileline="^([^: ]+):([0-9]+)(:[0-9]+)?"
-r1="s/${fileline}: (error)/${ef}\1${rst}:${el}\2\3${rst}: ${err}\4${rst}/gi"
+r1="s/${fileline}: ((fatal )?error)/${ef}\1${rst}:${el}\2\3${rst}: ${err}\4${rst}/gi"
 r2="s/${fileline}: (warning)/${wf}\1${rst}:${wl}\2\3${rst}: ${wrn}\4${rst}/gi"
 r3="s/undefined reference/${lnk}\0${rst}/gi"
 r4="s/note:/${nte}\0${rst}/g"
-r5="s/(In function ‘)(.+) ([^(]+)\(/\1${ty}\2 ${fn}\3${rst}(/gi"
-$@ 3>&1 1>&2- 2>&3- | sed -r "${r1};${r2};${r3};${r4};${r5}"
+r5="s/(‘)([^(’]+ )*([^(’ ]+)(\([^’]*\))?(’)/${wh}\1${ty}\2${fn}\3${wh}\4\5${rst}/g"
+r6="s/(\`)([^(']+ )*([^(' ]+)(\([^']*\))?(')/${wh}\1${ty}\2${fn}\3${wh}\4\5${rst}/g"
+$@ 3>&1 1>&2- 2>&3- | sed -r "${r1};${r2};${r3};${r4};${r5};${r6}"
