@@ -45,11 +45,12 @@ filetype indent on
 " various settings
 set cinoptions=l1,g0,N-s
 set clipboard=unnamedplus
-set colorcolumn=-1
+set colorcolumn=+0
 set cursorline
 set diffopt=filler,iwhite,context:2
 set display+=uhex
 set fillchars=vert:║,fold:═,diff:░
+set listchars=tab:»·,trail:·,extends:#,nbsp:·
 set formatoptions+=12nj
 set formatoptions-=t
 set grepprg=grep\ -nH\ $*
@@ -96,6 +97,7 @@ hi DiffChange ctermbg=darkgray
 hi DiffDelete ctermbg=darkgray ctermfg=red cterm=NONE
 hi DiffText ctermbg=NONE cterm=standout,bold
 hi LineNr ctermbg=darkgray
+hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
 
 " filetype-dependent
 au! FileType make setlocal noexpandtab
