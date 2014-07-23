@@ -2,7 +2,6 @@
 [ -z "$PS1" ] && return
 
 # history
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 HISTCONTROL=ignoreboth
 HISTSIZE=5000
 HISTFILESIZE=5000
