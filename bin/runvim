@@ -1,2 +1,19 @@
 #!/bin/bash
-/usr/bin/gnome-terminal -e "vim \"$1\""
+# open file in argument in vim inside a terminal emulator
+
+# detect DM's terminal emulator
+for term in /usr/bin/{gnome,mate,xfce4}-terminal; do
+    if [ -x "$term" ]; then
+        TERM_EXEC="$term"
+        break
+    fi
+done
+
+# try to display GUI error when none found
+if [ ! -x "$TERM_EXEC" ]; then
+    zenity --error --text='no terminal found'
+    exit 1
+fi
+
+# start vim in the detected terminal
+$TERM_EXEC -e "vim \"$1\""
