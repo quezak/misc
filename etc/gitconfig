@@ -1,0 +1,23 @@
+[user]
+    #name =
+    #email =
+[color]
+    ui = true
+[merge]
+    tool = splice
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
+[alias]
+    ci = commit
+    co = checkout
+    vd = difftool
+    dt = difftool
+[core]
+    pager = less
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[push]
+    default = simple
