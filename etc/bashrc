@@ -42,8 +42,11 @@ fi
 if [ -e "$(which vimmanpager 2>/dev/null)" ]; then
     export MANPAGER=$(which vimmanpager)
 fi
+export GCC_COLORS='error=01;41:warning=01;33:note=01:caret=01;32:locus=35:quote=36'
 
 # aliases
 alias wtf='sudo tail -f /var/log/messages'
 alias vtf='sudo vim /var/log/messages'
 alias PGG='ping 8.8.8.8'
+alias xclip='xclip -selection c'
+alias igrep='grep -i'
