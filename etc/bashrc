@@ -48,7 +48,7 @@ export GCC_COLORS='error=01;41:warning=01;33:note=01:caret=01;32:locus=35:quote=
 if [ -n "$(wmctrl -m | grep Marco)" ]; then
     alias nautilus='caja'
     alias gedit='pluma'
-    alias evice='atril'
+    alias evince='atril'
     alias metacity='marco'
 fi
 
