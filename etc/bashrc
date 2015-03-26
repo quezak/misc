@@ -3,8 +3,8 @@
 
 # history
 HISTCONTROL=ignoreboth
-HISTSIZE=5000
-HISTFILESIZE=5000
+HISTSIZE=50000
+HISTFILESIZE=50000
 shopt -s histappend
 shopt -s checkwinsize
 
@@ -43,6 +43,14 @@ if [ -e "$(which vimmanpager 2>/dev/null)" ]; then
     export MANPAGER=$(which vimmanpager)
 fi
 export GCC_COLORS='error=01;41:warning=01;33:note=01:caret=01;32:locus=35:quote=36'
+
+# mate-gnome 'compatibility'
+if [ -n "$(wmctrl -m | grep Marco)" ]; then
+    alias nautilus='caja'
+    alias gedit='pluma'
+    alias evice='atril'
+    alias metacity='marco'
+fi
 
 # aliases
 alias wtf='sudo tail -f /var/log/messages'
