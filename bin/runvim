@@ -16,4 +16,4 @@ if [ ! -x "$TERM_EXEC" ]; then
 fi
 
 # start vim in the detected terminal
-$TERM_EXEC -e "vim \"$1\""
+$TERM_EXEC -e "vim \"$@\""
