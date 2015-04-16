@@ -38,19 +38,27 @@ if has("eval")
 endif
 
 " ---- my settings --------------------------------------------------------
+if isdirectory($HOME . "/.vim/bundle")
+    execute pathogen#infect()
+endif
 syntax on
 filetype plugin on
 filetype indent on
 
 " various settings
 set cinoptions=l1,g0,N-s
-set clipboard=unnamedplus
+if has ("unnamedplus")
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
 set colorcolumn=+0
 set cursorline
 set diffopt=filler,iwhite,context:2
 set display+=uhex
 set fillchars=vert:║,fold:═,diff:░
-set listchars=tab:»·,trail:·,extends:#,nbsp:·
+set listchars=tab:»·,trail:·,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪
 set formatoptions+=12nj
 set formatoptions-=t
 set grepprg=grep\ -nH\ $*
@@ -78,7 +86,7 @@ let c_no_curly_error = 1
 let g:netrw_list_hide='^\.[^.].*,.*\~$,.*\.swp,.*\.bak'
 let g:tex_flavor='latex'
 
-" abbreviations
+" abbreviations & commands
 cabbr help vert help
 nmap <C-H> :nohl<CR>
 imap <C-H> <ESC>:nohl<CR>i
@@ -86,8 +94,13 @@ imap <C-W><Left> <ESC><C-W><Left>i
 imap <C-W><Right> <ESC><C-W><Right>i
 imap <C-W><Up> <ESC><C-W><Up>i
 imap <C-W><Down> <ESC><C-W><Down>i
+cnoremap w!! w !sudo tee % >/dev/null
 
-" sintax fixes
+" plugin settings
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+
+" syntax fixes
 syn match Error '\s\+$'
 hi ColorColumn ctermbg=darkgrey
 hi CursorLine cterm=NONE ctermbg=darkgrey
