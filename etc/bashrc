@@ -53,7 +53,7 @@ fi
 export GCC_COLORS='error=01;41:warning=01;33:note=01:caret=01;32:locus=35:quote=36'
 
 # mate-gnome 'compatibility'
-if [ -n "$(wmctrl -m | grep Marco)" ]; then
+if [ -n "$(wmctrl -m 2> /dev/null | grep Marco)" ]; then
     alias nautilus='caja'
     alias gedit='pluma'
     alias evince='atril'
