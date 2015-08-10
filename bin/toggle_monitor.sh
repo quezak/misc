@@ -5,7 +5,7 @@
 # Check these with xwininfo on a maximized window.
 lwidth=1920
 lheight=1008
-rwidth=1920
+rwidth=1671
 rheight=1200
 
 # Get current size and position.
@@ -18,8 +18,8 @@ curh=`xwininfo -id $window | grep "Height" | awk '{print $2}'`
 neww=-1
 newh=-1
 
-# Maximized windows don't move properly under some mysterious circumstances, so we have
-# to unmaximize them while moving.
+# Maximized windows someteimes don't move properly under some mysterious circumstances,
+# so we have to unmaximize them while moving.
 # FIXME: this works just with fully maximized windows, will have to detect
 #        horizontal and vertical maximization separately
 maximized=false
