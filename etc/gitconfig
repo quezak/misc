@@ -17,7 +17,9 @@
     pager = less
 [diff]
     tool = vimdiff
+    trustExitCode = true
 [difftool]
     prompt = false
+    trustExitCode = true
 [push]
     default = simple
