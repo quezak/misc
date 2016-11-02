@@ -100,6 +100,11 @@ cnoremap w!! w !sudo tee % >/dev/null
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
+let g:flake8_show_in_gutter=1
+let g:flake8_quickfix_height=10
+
+let g:haskell_classic_highlighting=1
+
 " syntax fixes
 syn match Error '\s\+$'
 hi ColorColumn ctermbg=darkgrey
@@ -114,4 +119,11 @@ hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
 
 " filetype-dependent
 au! FileType make setlocal noexpandtab
-
+au! BufNew,BufRead *.j setf jasmin
+au! BufNew,BufRead *.ll set filetype=llvm
+au! BufNew,BufRead *.g set filetype=antlr3
+au! BufNew,BufRead *.lat set filetype=java
+au! BufNew,BufRead *.gradle set filetype=groovy
+au BufNew,BufRead *.bolt set filetype=bolt
+au BufNew,BufRead rules.json set filetype=firebase-rules
+au FileType python iabbr IPDB import ipdb; ipdb.set_trace()

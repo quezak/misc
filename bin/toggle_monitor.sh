@@ -1,12 +1,12 @@
 #!/bin/bash
-# Put the window on the other monitor.
+# Put the window on the other monitor. To be hooked up to some DM hotkey.
 
 # Effective resolutions of left and right monitors.
 # Check these with xwininfo on a maximized window.
 lwidth=1920
 lheight=1008
-rwidth=1671
-rheight=1200
+rwidth=1920
+rheight=1028
 
 # Get current size and position.
 window=`xdotool getactivewindow`

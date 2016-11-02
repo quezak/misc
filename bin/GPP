@@ -13,4 +13,4 @@ gpppath="${1/$gppname${ext}}"
 if [ "$gpppath" == "$1" ]; then gpppath="${1/$gppname}"; fi
 shift;
 echo "compiling $gppname${ext}:"
-g++ -O2 -std=c++0x -Wall -Wunused -Wformat -Wfloat-equal -Wsequence-point "$gpppath$gppname${ext}" -o "$gpppath$gppname" $@ | sed '/^.*declared with attribute warn_unused_result/d'
+g++ -O2 -std=c++11 -Wall -Wunused -Wformat -Wfloat-equal -Wsequence-point "$gpppath$gppname${ext}" -o "$gpppath$gppname" $@ | sed '/^.*declared with attribute warn_unused_result/d'
