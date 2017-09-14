@@ -52,6 +52,7 @@ if has ("unnamedplus")
 else
     set clipboard=unnamed
 endif
+set background=light
 set colorcolumn=+0
 set cursorline
 set diffopt=filler,iwhite,context:2
@@ -66,6 +67,9 @@ set hlsearch incsearch
 set laststatus=2
 set matchpairs+==:;
 set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+endif
 set nowrap
 set number
 set pdev=pdf
@@ -97,12 +101,14 @@ imap <C-W><Down> <ESC><C-W><Down>i
 cnoremap w!! w !sudo tee % >/dev/null
 
 " plugin settings
+" * multi_cursor
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
-
-let g:flake8_show_in_gutter=1
+" * flake8
 let g:flake8_quickfix_height=10
-
+let g:flake8_show_in_gutter=1
+" * haskellmode
+let g:haddock_browser="/usr/bin/firefox"
 let g:haskell_classic_highlighting=1
 
 " syntax fixes
@@ -119,11 +125,16 @@ hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
 
 " filetype-dependent
 au! FileType make setlocal noexpandtab
-au! BufNew,BufRead *.j setf jasmin
-au! BufNew,BufRead *.ll set filetype=llvm
-au! BufNew,BufRead *.g set filetype=antlr3
-au! BufNew,BufRead *.lat set filetype=java
-au! BufNew,BufRead *.gradle set filetype=groovy
-au BufNew,BufRead *.bolt set filetype=bolt
-au BufNew,BufRead rules.json set filetype=firebase-rules
+au! BufNew,BufRead *.j setlocal filetype=jasmin
+au! BufNew,BufRead *.ll setlocal filetype=llvm
+au! BufNew,BufRead *.g setlocal filetype=antlr3
+au! BufNew,BufRead *.lat setlocal filetype=java
+au BufNew,BufRead *.bolt setlocal filetype=bolt
+au BufNew,BufRead rules.json setlocal filetype=firebase-rules
 au FileType python iabbr IPDB import ipdb; ipdb.set_trace()
+au FileType python iabbr IPDTRY import ipdb; with ipdb.launch_ipdb_on_exception():
+
+" jshint validation
+nnoremap <silent><F7> :JSHint<CR>
+inoremap <silent><F7> <C-O>:JSHint<CR>
+vnoremap <silent><F7> :JSHint<CR>
