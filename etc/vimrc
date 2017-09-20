@@ -114,23 +114,25 @@ let g:haskell_classic_highlighting=1
 " syntax fixes
 syn match Error '\s\+$'
 hi ColorColumn ctermbg=darkgrey
-hi CursorLine cterm=NONE ctermbg=darkgrey
+hi CursorLine cterm=none ctermbg=darkgrey
 hi CursorLineNr ctermfg=yellow ctermbg=darkgrey cterm=inverse,bold
 hi DiffAdd ctermbg=darkgray ctermfg=green
 hi DiffChange ctermbg=darkgray
-hi DiffDelete ctermbg=darkgray ctermfg=red cterm=NONE
-hi DiffText ctermbg=NONE cterm=standout,bold
+hi DiffDelete ctermbg=darkgray ctermfg=red cterm=none
+hi DiffText ctermbg=none cterm=standout,bold
 hi LineNr ctermbg=darkgray
 hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
+hi Constant ctermfg=red cterm=bold
+hi String ctermfg=red cterm=none
 
 " filetype-dependent
 au! FileType make setlocal noexpandtab
-au! BufNew,BufRead *.j setlocal filetype=jasmin
-au! BufNew,BufRead *.ll setlocal filetype=llvm
-au! BufNew,BufRead *.g setlocal filetype=antlr3
-au! BufNew,BufRead *.lat setlocal filetype=java
-au BufNew,BufRead *.bolt setlocal filetype=bolt
-au BufNew,BufRead rules.json setlocal filetype=firebase-rules
+au! BufNewFile,BufRead *.j setlocal filetype=jasmin
+au! BufNewFile,BufRead *.ll setlocal filetype=llvm
+au! BufNewFile,BufRead *.g setlocal filetype=antlr3
+au! BufNewFile,BufRead *.lat setlocal filetype=java
+au BufNewFile,BufRead *.bolt setlocal filetype=bolt
+au BufNewFile,BufRead rules.json setlocal filetype=firebase-rules
 au FileType python iabbr IPDB import ipdb; ipdb.set_trace()
 au FileType python iabbr IPDTRY import ipdb; with ipdb.launch_ipdb_on_exception():
 
