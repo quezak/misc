@@ -131,6 +131,7 @@ au! BufNewFile,BufRead *.j setlocal filetype=jasmin
 au! BufNewFile,BufRead *.ll setlocal filetype=llvm
 au! BufNewFile,BufRead *.g setlocal filetype=antlr3
 au! BufNewFile,BufRead *.lat setlocal filetype=java
+au! BufNewFile,BufRead *.asm setlocal filetype=nasm
 au BufNewFile,BufRead *.bolt setlocal filetype=bolt
 au BufNewFile,BufRead rules.json setlocal filetype=firebase-rules
 au FileType python iabbr IPDB import ipdb; ipdb.set_trace()
