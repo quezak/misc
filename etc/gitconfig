@@ -9,10 +9,13 @@
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
 [alias]
+    s = status
     ci = commit
     co = checkout
     vd = difftool
     dt = difftool
+    lc = log-compact
+    lcg = log-compact --graph
 [core]
     pager = less
 [diff]
@@ -23,3 +26,5 @@
     trustExitCode = true
 [push]
     default = simple
+[log-compact]
+	defaults = --decorate

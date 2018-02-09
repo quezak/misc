@@ -99,6 +99,10 @@ imap <C-W><Right> <ESC><C-W><Right>i
 imap <C-W><Up> <ESC><C-W><Up>i
 imap <C-W><Down> <ESC><C-W><Down>i
 cnoremap w!! w !sudo tee % >/dev/null
+" note: ctrl-/ is registered as <C-_>
+nmap <C-_> <Leader>c<space>
+vmap <C-_> <Leader>c<space>
+imap <C-_> <ESC><Leader>c<space>i
 
 " plugin settings
 " * multi_cursor
@@ -110,6 +114,10 @@ let g:flake8_show_in_gutter=1
 " * haskellmode
 let g:haddock_browser="/usr/bin/firefox"
 let g:haskell_classic_highlighting=1
+" * nerdcommenter
+let g:NERDCompactSexyComs = 1
+let g:NERDAltDelims_c = 1
+let g:NERDSpaceDelims = 1
 
 " syntax fixes
 syn match Error '\s\+$'
@@ -136,8 +144,4 @@ au BufNewFile,BufRead *.bolt setlocal filetype=bolt
 au BufNewFile,BufRead rules.json setlocal filetype=firebase-rules
 au FileType python iabbr IPDB import ipdb; ipdb.set_trace()
 au FileType python iabbr IPDTRY import ipdb; with ipdb.launch_ipdb_on_exception():
-
-" jshint validation
-nnoremap <silent><F7> :JSHint<CR>
-inoremap <silent><F7> <C-O>:JSHint<CR>
-vnoremap <silent><F7> :JSHint<CR>
+au FileType javascript nnoremap <silent><F7> :JSHint<CR>
