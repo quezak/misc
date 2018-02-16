@@ -46,7 +46,7 @@ filetype plugin on
 filetype indent on
 
 " various settings
-set cinoptions=l1,g0,N-s
+set cinoptions=l1,g0,N-s,(2s
 if has ("unnamedplus")
     set clipboard=unnamedplus
 else
@@ -58,6 +58,7 @@ set cursorline
 set diffopt=filler,iwhite,context:2
 set display+=uhex
 set fillchars=vert:║,fold:═,diff:░
+set ignorecase
 set listchars=tab:»·,trail:·,extends:❯,precedes:❮,nbsp:␣
 set showbreak=↪
 set formatoptions+=12nj
@@ -76,12 +77,16 @@ set pdev=pdf
 set popt=left:10mm,right:10mm,top:10mm,bottom:15mm,syntax:y,number:y,wrap:y,paper:A4
 set report=0
 set scrolloff=12
+set smartcase
 set showcmd
 set showmatch
 set sidescrolloff=20
-set statusline=%f\ %y\ \{%{&ff}\}%(\ [%M%R]%)%=%{strftime(\"\%F\ \%T\",getftime(expand(\"\%\%\")))}%10.(%l:%c%)%6.p%%
+" set statusline=%f\ %y\ \{%{&ff}\}%(\ [%M%R]%)%=%{strftime(\"\%F\ \%T\",getftime(expand(\"\%\%\")))}%10.(%l:%c%)%6.p%%
+set statusline=%f\ %y\ \{%{&ff}\}%(\ [%M%R]%)%=%#warningmsg#%{SyntasticStatuslineFlag()}%*\ \ %{strftime(\"\%F\ \%T\",getftime(expand(\"\%\%\")))}%10.(%l:%c%)%6.p%%
 set textwidth=100
 set ts=4 sw=4 sts=4 expandtab
+" to make gitgutter work
+set updatetime=100
 set wildignore=*.o,*.aux,*.dvi,*.pdf
 set wildmenu
 set wildmode=longest:full
@@ -118,9 +123,21 @@ let g:haskell_classic_highlighting=1
 let g:NERDCompactSexyComs = 1
 let g:NERDAltDelims_c = 1
 let g:NERDSpaceDelims = 1
+" * syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_cpp_checkers = ['cpplint', 'clang_tidy']
+let g:syntastic_solidity_checkers = ['solium']
+let g:lt_location_list_toggle_map = '<C-L>'
+" * localvimrc
+let g:localvimrc_persistent = 1
 
 " syntax fixes
 syn match Error '\s\+$'
+hi Debug ctermfg=darkgrey cterm=bold
 hi ColorColumn ctermbg=darkgrey
 hi CursorLine cterm=none ctermbg=darkgrey
 hi CursorLineNr ctermfg=yellow ctermbg=darkgrey cterm=inverse,bold
@@ -132,6 +149,14 @@ hi LineNr ctermbg=darkgray
 hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
 hi Constant ctermfg=red cterm=bold
 hi String ctermfg=red cterm=none
+hi link jsGlobalNodeObject Special
+hi link jsGlobalObjects Type
+hi link jsTemplateBraces Special
+hi link jsTemplateExpression Special
+hi link jsFuncArgs Special
+hi link jsVariableDef Identifier
+hi link jsObjectKey Identifier
+hi link jsFunctionKey Identifier
 
 " filetype-dependent
 au! FileType make setlocal noexpandtab
