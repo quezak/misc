@@ -1,0 +1,40 @@
+#!/bin/bash
+
+name="$1"
+if [ -z "$name" ]; then
+    echo "usage: $0 [command substring]"
+    exit 1
+fi
+ps aux | grep -v "$0" | grep -v "grep --color $name" | grep --color "$name" 
+pids="$(ps aux | grep -v "$0" | grep -v "grep $name" | grep "$name" | awk '{print $2}')"
+
+echo $pids
+echo "kill [a]ll | [n]one | [s]elect <1-based-numbers>"
+read reply
+cmd="${reply:0:1}"
+case "$cmd" in
+    ""|"n")
+        kpids=""
+        ;;
+    "a") 
+        kpids="$pids"
+        ;;
+    "s")
+        arr=($pids)
+        kpids=""
+        for num in ${reply:1}; do
+            kpids="$kpids ${arr[num - 1]}"
+        done
+        ;;
+    *)
+        echo "invalid choice: $reply"
+        exit 1
+        ;;
+esac
+
+if [ -z "$kpids" ]; then
+    echo "nothing to kill."
+    exit 0
+fi
+
+kill $kpids
