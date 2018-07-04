@@ -1,0 +1,71 @@
+{
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "typescript.preferences.quoteStyle": "single",
+  "editor.fontFamily": "'Monoid'",
+  "editor.fontSize": 12,
+  "vim.useSystemClipboard": true,
+  "editor.tokenColorCustomizations": {
+    "comments": "#5b7baa",
+    "strings": "#c6635d",
+    "types": "#ffffff",
+    "functions": "#ffc66d",
+    "keywords": "#70b230",
+    "numbers": "#bb632e",
+    "variables": "#a9b7c6",
+    "textMateRules": [
+      {
+        "scope": "support.type.property-name",
+        "settings": { "foreground": "#ffc66d"}
+      },
+      {
+        "scope": "meta.type.annotation",
+        "settings": { "foreground": "#cc7832" }
+      },
+      {
+        "scope": "storage.modifier",
+        "settings": { "foreground": "#70b230" }
+      },
+      {
+        "scope": "comment.block.documentation",
+        "settings": { "foreground": "#5f64aa" }
+      },
+      {
+        "scope": "variable.parameter",
+        "settings": { "foreground": "#34bb90" }
+      },
+      {
+        "scope": "variable.language.this, variable.language.super",
+        "settings": { "foreground": "#70b230", "fontStyle": "bold" }
+      },
+      {
+        "scope": "constant.language.boolean",
+        "settings": { "foreground": "#bb632e" }
+      },
+      {
+        "scope": "constant.language.null, constant.language.undefined",
+        "settings": { "foreground": "#bb2c17" }
+      },
+      {
+        "scope": "meta.object-literal.key",
+        "settings": { "foreground": "#42cec7"}
+      },
+    ]
+  },
+  "workbench.colorCustomizations": {
+    "editor.foreground": "#a9b7c6",
+    "editor.lineHighlightBackground": "#2b2b2b",
+    "editorGutter.background": "#2b2b2b",
+    "editorLineNumber.foreground": "#ad8d4b",
+    "editorLineNumber.activeForeground": "#e6b663",
+  },
+  "files.autoSave": "off",
+  "window.zoomLevel": 0,
+  "search.useRipgrep": false,
+  "vim.handleKeys": {
+    "<C-w>": false,
+    "<C-f>": false,
+    "<C-h>": false,
+    "<C-r>": false,
+  },
+}
