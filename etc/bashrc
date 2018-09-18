@@ -85,6 +85,7 @@ alias steam='LD_LIBRARY_PATH=~/lib steam'
 alias mount_ntfs='sudo mount -o umask=022,noatime,uid=1000,gid=1000'
 alias lsemerging='find /var/tmp/portage -maxdepth 2 -mindepth 2 -type d'
 alias dirsizes='find -mindepth 1 -maxdepth 1 -type d | xargs du -sh'
+alias ts-node="ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false }'"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/quezak/pkg/google-cloud-sdk/path.bash.inc ]; then

@@ -7,5 +7,9 @@
     {
         "key": "ctrl+h",
         "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.files.saveAll"
     }
 ]
