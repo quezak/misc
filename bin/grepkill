@@ -8,7 +8,13 @@ fi
 ps aux | grep -v "$0" | grep -v "grep --color $name" | grep --color "$name" 
 pids="$(ps aux | grep -v "$0" | grep -v "grep $name" | grep "$name" | awk '{print $2}')"
 
+echo
 echo $pids
+if [ -z "$pids" ]; then
+    echo "found nothing to kill."
+    exit 0
+fi
+
 echo "kill [a]ll | [n]one | [s]elect <1-based-numbers>"
 read reply
 cmd="${reply:0:1}"
@@ -33,7 +39,7 @@ case "$cmd" in
 esac
 
 if [ -z "$kpids" ]; then
-    echo "nothing to kill."
+    echo "selected nothing to kill."
     exit 0
 fi
 
