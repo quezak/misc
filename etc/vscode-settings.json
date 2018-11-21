@@ -88,4 +88,21 @@
   "gitlens.blame.dateFormat": "YYYY-MM-DD",
   "editor.minimap.maxColumn": 100,
   "editor.minimap.showSlider": "always",
+  "todo-tree.defaultHighlight": {
+    "background": "#ffc66d",
+    "foreground": "black",
+    "type": "tag"
+  },
+  "todo-tree.tags": ["TODO", "FIXME", "XXX", "NOTE", "TBD"],
+  "todo-tree.customHighlight": {
+    "TODO": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
+    "TBD": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
+    "FIXME": { "icon": "beaker", "iconColour": "#bb632e", "background": "#bb632e" },
+    "XXX": { "icon": "alert", "iconColour": "#bb2c17", "background": "#bb2c17" },
+    "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" },
+  },
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "editor.fontLigatures": true,
+  "search.showLineNumbers": true,
+  "workbench.editor.highlightModifiedTabs": true,
 }
