@@ -61,7 +61,6 @@
   },
   "files.autoSave": "off",
   "window.zoomLevel": 0,
-  "search.useRipgrep": false,
   "vim.handleKeys": {
     "<C-w>": false,
     "<C-f>": false,
@@ -73,6 +72,7 @@
     "<C-x>": false,
     "<C-v>": false,
     "<C-b>": false,
+    "<C-o>": false,
   },
   "solidity.linter": "solium",
   "solidity.soliumRules": {
@@ -105,4 +105,13 @@
   "editor.fontLigatures": true,
   "search.showLineNumbers": true,
   "workbench.editor.highlightModifiedTabs": true,
+  "tslint.ignoreDefinitionFiles": false,
+  "importSorter.importStringConfiguration.numberOfEmptyLinesAfterAllImports": 2,
+  "importSorter.importStringConfiguration.trailingComma": "multiLine",
+  "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 90,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimit",
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "python.linting.flake8Enabled": true,
+  "python.jediEnabled": false,
 }
