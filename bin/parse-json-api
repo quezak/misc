@@ -10,5 +10,6 @@ data = sys.stdin.read()
 if data.startswith('HTTP/1'):
     (headers, _, data) = data.partition('\r\n\r\n')
     print(highlight(headers, lexers.HttpLexer(), formatters.TerminalFormatter()))
-indented_json = json.dumps(json.loads(data), sort_keys=True, indent=2)
-print(highlight(indented_json, lexers.JsonLexer(), formatters.TerminalFormatter()))
+if len(data):
+    indented_json = json.dumps(json.loads(data), sort_keys=True, indent=2)
+    print(highlight(indented_json, lexers.JsonLexer(), formatters.TerminalFormatter()))
