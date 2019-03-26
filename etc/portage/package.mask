@@ -1,0 +1,12 @@
+# some struct field removed, will have to disable faac if not fixed later
+=media-libs/faac-1.29.9
+# various compile errors
+=www-client/chromium-68.0.3440*
+# broken libportmon dep
+=app-admin/conky-1.10.8-r5
+# emerge conflicts
+<sys-devel/libtool-2.4.3-r2
+<dev-libs/openssl-1.1
+<sys-apps/openrc-0.13.0
+<sys-process/procps-3.3.9-r2
+<dev-lang/perl-5.18.0

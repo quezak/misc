@@ -1,0 +1,16 @@
+dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
+dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
+net-im/skype skype-eula
+www-client/google-chrome google-chrome
+www-plugins/adobe-flash AdobeFlash-11.x
+www-plugins/google-talkplugin Google-TOS
+net-im/skype skype-4.0.0.7-copyright
+app-emulation/virtualbox-extpack-oracle PUEL
+sci-mathematics/spin spin-commercial spin-educational
+# required by teamviewer (argument)
+>=net-misc/teamviewer-11.0.57095 TeamViewer
+# required by www-client/chromium-62.0.3202.62::gentoo[widevine]
+# required by @selected
+# required by @world (argument)
+>=www-plugins/chrome-binary-plugins-62.0.3202.62:stable google-chrome
+>=media-sound/teamspeak-client-3.1.10 teamspeak3
