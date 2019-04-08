@@ -73,6 +73,7 @@
     "<C-v>": false,
     "<C-b>": false,
     "<C-o>": false,
+    "<C-k>": false,
   },
   "solidity.linter": "solium",
   "solidity.soliumRules": {
@@ -102,6 +103,7 @@
     "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" },
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
+  "tslint.configFile": "tslint.json",
   "editor.fontLigatures": true,
   "search.showLineNumbers": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -111,7 +113,45 @@
   "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 90,
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimit",
-  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.generalConfiguration.exclude": [
+    "types/.*\\.d\\.ts",
+  ],
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      // These are the 'side-effect-only' imports without `from`
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 10,
+      "disableSort": true
+    },
+    {
+      // Non-namespace package imports
+      "regex": "^[^.@]",
+      "orderLevel": 20
+    },
+    {
+      // Aliased local imports
+      "regex": "^@(auth|dto|entities|utils|generated|app|contracts|common|backend-common)/",
+      "orderLevel": 30
+    },
+    {
+      // Namespaced package imports
+      "regex": "^[@]",
+      "orderLevel": 25
+    },
+    {
+      // Local imports
+      "regex": "^[.]",
+      "orderLevel": 40
+    },
+  ],
   "python.linting.flake8Enabled": true,
   "python.jediEnabled": false,
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "importSorter.generalConfiguration.sortOnBeforeSave": true
 }

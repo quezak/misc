@@ -1,0 +1,61 @@
+-- vim: ft=conkyrc
+conky.config = {
+-- Window settings
+	background = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	text_buffer_size = 2048,
+	use_spacer = 'right',
+	use_xft = true,
+	minimum_width = 225, minimum_height = 0,
+	maximum_width = 225,
+
+	update_interval = 1.0,
+
+-- Text settings
+	font = 'Misc Ohsnap:size=10',
+	draw_shades = false,
+	draw_outline = true,-- amplifies text if yes
+	draw_borders = false,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	stippled_borders = 3,
+--border_margin 9
+	border_width = 10,
+
+-- Default colors and also border colors
+	default_color = '888888',
+	color1 = 'a0b74e',-- b7622d a0b74e b7823d 
+	color2 = 'afafaf',--light-default
+	color5 = '484848',--semi-dark
+	color3 = '303030',--dark-default
+	color4 = 'eeeeee',--very-light
+
+	own_window_colour = 'brown',
+	own_window_transparent = true,
+
+	alignment = 'top_right',
+	gap_x = -793,
+	gap_y = -420,
+	top_name_width = 14,
+};
+
+conky.text = [[
+#NETWORK
+# IP & speeds
+${color1}${font poky:size=14}Y${voffset 0}$font ${font M47_FIRE WIRE:size=12}network$font ${hr 2}
+    ${voffset 5}${addrs wlp3s0} $alignr${texeci 600 dig +short myip.opendns.com @resolver1.opendns.com}    
+    ${color4}${downspeedf wlp3s0}${color}kB/s$alignr${color4}${upspeedf wlp3s0}${color}kB/s    
+${voffset -20}${font pizzadude bullets:size=16}T${goto 216}N${font}
+# speed graphs
+${voffset 5}${downspeedgraph wlp3s0 15,100 000000 880000}$alignr${upspeedgraph wlp3s0 15,100 000000 008800}$color${voffset -5}
+# up/dl stats
+${voffset 5}${goto 105}session${goto 15}${color4}${totaldown wlp3s0}$alignr${color4} ${totalup wlp3s0}$color
+${goto 110}today${goto 15}$color2${execi 60 vnstat -i wlp3s0 | grep "today" | awk '{print $2 $3}'}$alignr${execi 60 vnstat -i wlp3s0 | grep "today" | awk '{print $5 $6}'}$color
+${goto 100}yesterday${goto 15}${execi 600 vnstat -i wlp3s0 | grep "yesterday" | awk '{print $2 $3}'}$alignr${execi 600 vnstat -i wlp3s0 | grep "yesterday" | awk '{print $5 $6}'}$color
+${goto 97}this month${goto 15}${execi 600 vnstat -i wlp3s0 -m | grep "`date +"'%y"`" | tail -1 | awk '{print $3 $4}'}$alignr${execi 600 vnstat -i wlp3s0 -m | grep "`date +"'%y"`" | tail -1 | awk '{print $6 $7}'}$color
+${color}Inbound: $color2${tcp_portmon 1 32767 count}$color   Outbound: $color2${tcp_portmon 32768 61000 count}$color ${alignr}Total: $color2${tcp_portmon 1 65535 count}$color
+]];

@@ -1,0 +1,71 @@
+-- vim: ft=conkyrc
+conky.config = {
+-- Window settings
+	background = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	text_buffer_size = 2048,
+	use_spacer = 'right',
+	use_xft = true,
+	minimum_width = 225, minimum_height = 0,
+	maximum_width = 225,
+
+	update_interval = 1.0,
+
+-- Text settings
+	font = 'Misc Ohsnap:size=10',
+	draw_shades = false,
+	draw_outline = true,-- amplifies text if yes
+	draw_borders = false,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	stippled_borders = 3,
+--border_margin 9
+	border_width = 10,
+
+-- Default colors and also border colors
+	default_color = '888888',
+	color1 = 'a0b74e',-- b7622d a0b74e b7823d 
+	color2 = 'afafaf',--light-default
+	color5 = '484848',--semi-dark
+	color3 = '303030',--dark-default
+	color4 = 'eeeeee',--very-light
+
+	own_window_colour = 'brown',
+	own_window_transparent = true,
+
+	alignment = 'top_right',
+	gap_x = -240,
+	gap_y = -420,
+	top_name_width = 14,
+};
+
+conky.text = [[
+#CPU
+${color1}${font poky:size=14}M${voffset -5}$font ${font M47_FIRE WIRE:size=12}cpu${hr 2}$font$color 
+# temps & freqs
+°C   ${color4}${hwmon 1 temp 2}   ${hwmon 1 temp 3}${alignr}${color4}${freq_g 1}   ${freq_g 2}   ${color}GHz
+# fan & load
+${color}RPM   ${color4}${hwmon 2 fan 1} ${alignr}${color4}${loadavg}${color} load
+#${color}fan${goto 70}${color4}${platform w83627ehf.656 fan 2}${color} RPM${goto 135}thr$alignr$color4$running_threads$color of $color4$threads
+# cpubars
+${voffset 0}\
+$color${cpubar cpu1 4,47}  $color${cpubar cpu2 4,47}  ${cpubar cpu3 4,47}  $color${cpubar cpu4 4,47}
+${voffset -10}$color${cpugraph cpu0 20,225 000000 7d8db7}
+${voffset -5}\
+# top processes
+processes ${goto 90}  ${color4}$processes$color${goto 135}active${goto 210} ${color4}$running_processes
+top CPU${goto 90}  CPU%${goto 135}top MEM${goto 210} MEM${color4}
+${goto 90}${top cpu 1}${goto 210}${top_mem mem_res 1}${color2}
+${goto 90}${top cpu 2}${goto 210}${top_mem mem_res 2}${color}
+${goto 90}${top cpu 3}${goto 210}${top_mem mem_res 3}
+${goto 90}${top cpu 4}${goto 210}${top_mem mem_res 4}
+${voffset -52}${font artwiz cure:size=10}\
+${top name 1}${goto 135}${top_mem name 1}${voffset 0}
+${top name 2}${goto 135}${top_mem name 2}${voffset 0}
+${top name 3}${goto 135}${top_mem name 3}${voffset 0}
+${top name 4}${goto 135}${top_mem name 4}$font${voffset -50}
+]];

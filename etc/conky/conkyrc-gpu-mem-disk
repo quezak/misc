@@ -1,0 +1,74 @@
+-- vim: ft=conkyrc
+conky.config = {
+-- Window settings
+	background = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	text_buffer_size = 2048,
+	use_spacer = 'right',
+	use_xft = true,
+	minimum_width = 225, minimum_height = 0,
+	maximum_width = 225,
+
+	update_interval = 1.0,
+
+-- Text settings
+	font = 'Misc Ohsnap:size=10',
+	draw_shades = false,
+	draw_outline = true,-- amplifies text if yes
+	draw_borders = false,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	stippled_borders = 3,
+--border_margin 9
+	border_width = 10,
+
+-- Default colors and also border colors
+	default_color = '888888',
+	color1 = 'a0b74e',-- b7622d a0b74e b7823d 
+	color2 = 'afafaf',--light-default
+	color5 = '484848',--semi-dark
+	color3 = '303030',--dark-default
+	color4 = 'eeeeee',--very-light
+
+	own_window_colour = 'brown',
+	own_window_transparent = true,
+
+	alignment = 'top_right',
+	gap_x = -517,
+	gap_y = -430,
+	top_name_width = 14,
+};
+
+conky.text = [[
+#GPU
+# ${color1}${font poky:size=14}N${voffset -5}$font ${font M47_FIRE WIRE:size=12}gpu${hr 2}$font$color
+# temp ${color4}${nvidia temp}${color}°C ${goto 135}power  ${color4}${exec nvidia-smi -q -d POWER | grep 'Power Draw' | awk '{print $4}'}${color}W 
+# core ${color4}${nvidia gpufreq}${color}MHz ${color4}${exec nvidia-smi -q -d UTILIZATION | grep 'Gpu' | awk '{print $3}'}${color}% ${goto 135}${execbar nvidia-smi -q -d UTILIZATION | grep 'Gpu' | awk '{print $3}'}
+# mem  ${color4}${nvidia memfreq}${color}MHz ${color4}${execi 10 nvidia-settings -tq [gpu:0]/UsedDedicatedGPUMemory}${color}MB ${goto 135}${execbar bc -q <<< "100 * $(nvidia-settings -tq [gpu:0]/UsedDedicatedGPUMemory) / $(nvidia-settings -tq [gpu:0]/TotalDedicatedGPUMemory)"}
+# fan  ${color4}${exec nvidia-settings -tq [fan:0]/GPUCurrentFanSpeedRPM}${color}RPM  ${color4}${exec nvidia-settings -tq [fan:0]/GPUCurrentFanSpeed}${color}% ${goto 135}${execbar nvidia-settings -tq [fan:0]/GPUCurrentFanSpeed}
+
+#MEM/DISK
+${color1}${font poky:size=14}H${voffset -5}$font ${font M47_FIRE WIRE:size=12}mem/disk${hr 2}$font$color
+# uptime
+${voffset 10} $color${font poky:size=12}a ${voffset -5}${font}uptime ${alignr}$uptime   
+#${voffset 2}${color}temp${alignr}$color4${execi 10 /usr/sbin/hddtemp /dev/sda -n}$color°C  ${platform w83627ehf.656 temp 1}°C   ${platform w83627ehf.656 temp 2}°C   ${platform w83627ehf.656 temp 3}°C
+# mem & swap bars
+${voffset 15}${color5}${membar 12}
+${voffset -14}${color4} RAM${goto 130}${memperc}%${goto 190}$mem$color
+${voffset 10}${color5}${swapbar 12}
+${voffset -14}${color4} swap${goto 130}${swapperc}%${goto 190}$swap$color
+# FS header
+${voffset 5} FS${goto 65}Free${goto 130}Read${goto 190}Write
+# FS boot
+${if_mounted /boot}\
+${color3}${fs_bar 12 /boot}$color2
+${voffset -14} boot ${goto 65}${fs_free /boot} ${goto 130}${diskio_read sda1} ${goto 190}${diskio_write sda1}
+${endif}\
+# FS root
+${color3}${fs_bar 12 /}$color2
+${voffset -14} root ${goto 65}${fs_free /} ${goto 130}${diskio_read sda3} ${goto 190}${diskio_write sda3}
+]];

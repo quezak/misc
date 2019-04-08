@@ -1,0 +1,59 @@
+-- vim: ft=conkyrc
+conky.config = {
+-- Window settings
+	background = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	text_buffer_size = 2048,
+	use_spacer = 'right',
+	use_xft = true,
+	minimum_width = 225, minimum_height = 0,
+	maximum_width = 225,
+
+	update_interval = 1.0,
+
+-- Text settings
+	font = 'Misc Ohsnap:size=10',
+	draw_shades = false,
+	draw_outline = true,-- amplifies text if yes
+	draw_borders = false,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	stippled_borders = 3,
+--border_margin 9
+	border_width = 10,
+
+-- Default colors and also border colors
+	default_color = '888888',
+	color1 = 'a0b74e',-- b7622d a0b74e b7823d 
+	color2 = 'afafaf',--light-default
+	color5 = '484848',--semi-dark
+	color3 = '303030',--dark-default
+	color4 = 'eeeeee',--very-light
+
+	own_window_colour = 'brown',
+	own_window_transparent = true,
+
+	alignment = 'top_right',
+	gap_x = -1070,
+	gap_y = -420,
+	top_name_width = 14,
+};
+
+conky.text = [[
+# date
+$color1${font poky:size=14}D${voffset 0}$font ${font M47_FIRE WIRE:size=12}${time %A}$font ${hr 2}
+${voffset -18}${alignr}${time %Y-%m-%d} $color
+# time
+${voffset 7}${goto 60}${color1}${font M47_FIRE WIRE:size=24}${time %H:%M:%S}
+# calendar
+${voffset -20}${color}${font}${execpi 60 DJS=`date +%_d`; cal -m | sed "s/^/\${goto 90}/;s/$DJS /\${color4}$DJS\${color} /"}
+# hline
+# ${voffset -15}${color1}${font M47_FIRE WIRE:size=12}${hr 2}$font$color
+# uptime
+# gmail unread counter
+#${goto 105}${voffset 3}${font wingdings:size=14}-$font ${voffset -5}${color4}${texeci 600 ~/.conky/gmail2}$color
+]];

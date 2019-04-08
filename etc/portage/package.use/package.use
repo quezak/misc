@@ -62,7 +62,6 @@ www-client/firefox -bindist minimal webm gconf pgo lto egl hwaccel system-cairo 
 www-client/lynx ssl
 www-plugins/adobe-flash 64bit
 x11-base/xorg-server xvfb
-x11-drivers/nvidia-drivers gtk3 uvm
 x11-libs/libdrm libkms
 x11-libs/libqxt doc -berkdb
 media-plugins/alsa-plugins pulseaudio
@@ -113,7 +112,6 @@ media-video/qnapi gnome
 # required by media-gfx/hugin-2015.0.0-r1::gentoo
 # required by hugin (argument)
 >=media-libs/vigra-1.10.0 openexr
-x11-drivers/nvidia-drivers gtk2 gtk3 static-libs
 app-misc/g15daemon -python
 # required by media-sound/teamspeak-client-bin-3.0.18.2::gentoo
 # required by teamspeak-client-bin (argument)

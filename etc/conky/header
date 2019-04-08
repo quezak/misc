@@ -1,0 +1,44 @@
+-- vim: ft=conkyrc
+conky.config = {
+-- Window settings
+	background = true,
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	text_buffer_size = 2048,
+	use_spacer = 'right',
+	use_xft = true,
+	minimum_width = 225, minimum_height = 0,
+	maximum_width = 225,
+
+	update_interval = 1.0,
+
+-- Text settings
+	font = 'Ohsnap:size=10',
+	draw_shades = false,
+	draw_outline = true,-- amplifies text if yes
+	draw_borders = false,
+	uppercase = false,-- set to yes if you want all text to be in uppercase
+
+	stippled_borders = 3,
+--border_margin 9
+	border_width = 10,
+
+-- Default colors and also border colors
+	default_color = '888888',
+	color1 = 'a0b74e',-- b7622d a0b74e b7823d 
+	color2 = 'afafaf',--light-default
+	color5 = '484848',--semi-dark
+	color3 = '303030',--dark-default
+	color4 = 'eeeeee',--very-light
+
+	own_window_colour = 'brown',
+	own_window_transparent = true,
+
+	alignment = 'top_right',
+	gap_x = -250,
+	gap_y = -320,
+	top_name_width = 14,
+};

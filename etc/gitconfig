@@ -17,6 +17,7 @@
     dts = difftool --staged
     lc = log-compact
     lcg = log-compact --graph
+    branch-clean = remote prune origin
 [core]
     pager = less
 [diff]
@@ -26,6 +27,6 @@
     prompt = false
     trustExitCode = true
 [push]
-    default = simple
+    default = current
 [log-compact]
 	defaults = --decorate

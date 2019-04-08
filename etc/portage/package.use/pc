@@ -1,1 +1,2 @@
 media-video/ffmpeg amr cpudetection faac hardcoded-tables threads vaapi vdpau x265 nvenc
+x11-drivers/nvidia-drivers gtk3 uvm static-libs

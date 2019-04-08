@@ -1,0 +1,9 @@
+#!/bin/sh
+killall conky
+sleep 2
+# trying to get the update intervals are more-or-less in sync...
+LC_ALL=C conky -d -c ~/.conky/conkyrc-gpu-mem-disk &
+sleep 0.1
+LC_ALL=C conky -d -c ~/.conky/conkyrc-cpu-procs &
+LC_ALL=C conky -d -c ~/.conky/conkyrc-datetime &
+LC_ALL=C conky -d -c ~/.conky/conkyrc-network &
