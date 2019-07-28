@@ -1,0 +1,12 @@
+[default]
+foreground-color='#BBBBBBBBBBBB'
+visible-name='Default'
+palette='#2E2E34343636:#FFFF1F1F1F1F:#6E6ECCCC1515:#F3F3BFBF1313:#38388282BCBC:#99997171B0B0:#0F0FC3C3C6C6:#D3D3D7D7CFCF:#555557575353:#FFFF3B3B3B3B:#9999E8E84C4C:#FFFFE7E77878:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC'
+scroll-on-output=false
+background-darkness=0.8721174004192872
+silent-bell=true
+use-theme-colors=false
+background-type='transparent'
+bold-color='#000000000000'
+background-color='#111111111111'
+scrollback-lines=131072
