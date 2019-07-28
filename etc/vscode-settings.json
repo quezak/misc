@@ -103,7 +103,7 @@
     "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" },
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "tslint.configFile": "tslint.json",
+  "tslint.configFile": "packages/tslint.json",
   "editor.fontLigatures": true,
   "search.showLineNumbers": true,
   "workbench.editor.highlightModifiedTabs": true,
@@ -131,7 +131,7 @@
     },
     {
       // Aliased local imports
-      "regex": "^@(auth|dto|entities|utils|generated|app|contracts|common|backend-common)/",
+      "regex": "^@(auth|bank|dto|entities|utils|generated|app|contracts|common|backend-common)/",
       "orderLevel": 30
     },
     {
@@ -153,5 +153,18 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "importSorter.generalConfiguration.sortOnBeforeSave": true
+  "editor.minimap.enabled": false,
+  "editor.gotoLocation.multiple": "goto",
+  "editor.rulers": [
+    100
+  ],
+  "tslint.packageManager": "yarn",
+  "tslint.autoFixOnSave": true,
+  "tslint.exclude": [
+    "node_modules/**/*",
+    "node_modules/*",
+    "**/*.json",
+    "backend-common/generated/**/*"
+  ],
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
 }
