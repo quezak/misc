@@ -61,5 +61,19 @@
     {
         "key": "ctrl+shift+,",
         "command": "workbench.action.openSettingsJson"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "move-ts.move"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-list.focusPageDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeWindow",
+        "when": "!editorIsOpen && !multipleEditorGroups"
     }
 ]

@@ -32,7 +32,7 @@ else
     fi
 fi
 PS1="\[\033[35m\]\$(printf '% 4d' \$?)\[\033[0m\]\[\033[01;32m\][\[\033[${ucolor}\]\u\[\033[01;31m\]@\[\033[00;32m\]\h\[\033[01;32m\]]\[\033[0;34m\]\w\[\033[01;31m\]>: \[\033[00m\]"
-PS2="\[\033[1;31m\]>:\[\033[0m\]"
+PS2="\[\033[1;31m\]>:\[\033[0m\] "
 if [ -n "$IS_CHROOT" ]; then
     PS1="\[\033[30;47m\][chrt]\[\033[0m\] $PS1"
 fi
@@ -89,8 +89,9 @@ alias mount_ntfs='sudo mount -o umask=022,noatime,uid=1000,gid=1000'
 alias lsemerging='find /var/tmp/portage -maxdepth 2 -mindepth 2 -type d'
 alias dirsizes='find -mindepth 1 -maxdepth 1 -type d | xargs du -sh'
 alias docker-purge='docker rm $(docker ps -aq)'
-alias ts-node="ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false }'"
+alias ts-node="npx ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false }' -r tsconfig-paths/register"
 alias git-clean-local-branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
+alias git-cdr='cd $(git rev-parse --show-toplevel)'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/quezak/pkg/google-cloud-sdk/path.bash.inc ]; then
