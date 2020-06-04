@@ -84,6 +84,8 @@
     "<C-o>": false,
     "<C-k>": false,
     "<C-d>": false,
+    "<C-a>": false,
+    "<C-space>": false,
   },
   "solidity.linter": "solium",
   "solidity.soliumRules": {
@@ -111,72 +113,26 @@
     "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" },
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "tslint.configFile": "/home/quezak/work/ramp-instant/packages/tslint.json",
   "editor.fontLigatures": true,
   "search.showLineNumbers": true,
   "workbench.editor.highlightModifiedTabs": true,
-  "tslint.ignoreDefinitionFiles": false,
-  "importSorter.generalConfiguration.sortOnBeforeSave": true,
-  "importSorter.importStringConfiguration.numberOfEmptyLinesAfterAllImports": 2,
-  "importSorter.importStringConfiguration.trailingComma": "multiLine",
-  "importSorter.sortConfiguration.customOrderingRules.defaultOrderLevel": 90,
-  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 100,
-  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimit",
-  "importSorter.generalConfiguration.exclude": [
-    "types/.*\\.d\\.ts",
-  ],
-  "importSorter.sortConfiguration.customOrderingRules.rules": [
-    {
-      // These are the 'side-effect-only' imports without `from`
-      "type": "importMember",
-      "regex": "^$",
-      "orderLevel": 10,
-      "disableSort": true
-    },
-    {
-      // Non-namespace package imports
-      "regex": "^[^.@]",
-      "orderLevel": 20
-    },
-    {
-      // Aliased local imports
-      "regex": "^@(auth|bank|dto|entities|utils|generated|app|contracts|common|backend-common)/",
-      "orderLevel": 30
-    },
-    {
-      // Namespaced package imports
-      "regex": "^[@]",
-      "orderLevel": 25
-    },
-    {
-      // Local imports
-      "regex": "^[.]",
-      "orderLevel": 40
-    },
-  ],
   "python.linting.flake8Enabled": true,
   "python.jediEnabled": false,
   "files.exclude": {
     "**/node_modules": true
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll.tslint": true
+    "source.organizeImports": false,
+    "source.fixAll.eslint": true
   },
   "editor.minimap.enabled": false,
-  "editor.gotoLocation.multiple": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
   "editor.rulers": [
     100
   ],
-  "tslint.packageManager": "yarn",
-  "tslint.exclude": [
-    "node_modules/**/*",
-    "node_modules/*",
-    "**/*.json",
-    "backend-common/generated/**/*"
-  ],
   "typescript.tsserver.log": "verbose",
-  "editor.find.autoFindInSelection": true,
+  "editor.find.autoFindInSelection": "multiline",
   "gitlens.currentLine.enabled": false,
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
@@ -186,4 +142,20 @@
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
   "workbench.list.horizontalScrolling": true,
+  "bracketPairColorizer.forceUniqueOpeningColor": true,
+  "bracketPairColorizer.colorMode": "Consecutive",
+  "bracketPairColorizer.showBracketsInGutter": true,
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    [
+      "SandyBrown",
+      "MediumAquaMarine",
+      "Plum",
+    ],
+    "Red"
+  ],
+  "todo-tree.tree.showScanModeButton": false,
+  "python.insidersChannel": "off",
 }

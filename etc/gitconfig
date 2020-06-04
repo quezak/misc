@@ -5,6 +5,7 @@
     ui = true
 [merge]
     tool = splice
+	conflictstyle = diff3
 [mergetool "splice"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
@@ -18,8 +19,11 @@
     lc = log-compact
     lcg = log-compact --graph
     branch-clean = remote prune origin
+    recent-branches = !git for-each-ref --color=always --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset)¬%(color:yellow)%(refname:short)%(color:reset)¬%(authorname)¬%(color:green)%(committerdate:relative)%(color:reset)¬%(contents:subject)' | column -ts'¬'
+    purr = pull --rebase
 [core]
     pager = less
+	excludesfile = /home/quezak/.gitignore_global
 [diff]
     tool = vimdiff
     trustExitCode = true

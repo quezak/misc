@@ -102,3 +102,19 @@ fi
 if [ -f /home/quezak/pkg/google-cloud-sdk/completion.bash.inc ]; then
   source '/home/quezak/pkg/google-cloud-sdk/completion.bash.inc'
 fi
+
+if [ -s /usr/share/nvm/nvm.sh ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source /usr/share/nvm/nvm.sh
+    source /usr/share/nvm/bash_completion
+    source /usr/share/nvm/install-nvm-exec
+fi
+
+function wttr() {
+    local request="wttr.in/${1-Warsaw}"
+    local request2="${request}?format=v2"
+    [ "$(tput cols)" -lt 125 ] && request+='?n'
+    curl "$request"
+    curl "$request2"
+}
+

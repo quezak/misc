@@ -75,5 +75,14 @@
         "key": "ctrl+w",
         "command": "-workbench.action.closeWindow",
         "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-filesExplorer.findInFolder",
+        "when": "explorerResourceIsFolder && explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "search.action.openNewEditorToSide"
     }
 ]
