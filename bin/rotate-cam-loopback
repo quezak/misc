@@ -1,0 +1,10 @@
+#!/bin/sh
+# rotate the camera input
+# requires v4l2 loopback kernel module https://github.com/umlaeute/v4l2loopback
+# module config (/etc/modprobe.d/v4l2loopback.conf):
+# options v4l2loopback video_nr=9 card_label="rotate-loopback" exclusive_caps=1
+# kudos go there: https://unix.stackexchange.com/a/408792/185562
+
+echo "starting stream, ctrl-c to stop"
+DEV=${1:-/dev/video0}
+ffmpeg -f v4l2 -i ${DEV} -vf transpose=1 -f v4l2 -pix_fmt yuyv422 /dev/video9
