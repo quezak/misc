@@ -87,11 +87,7 @@
     "<C-a>": false,
     "<C-space>": false,
   },
-  "solidity.linter": "solium",
-  "solidity.soliumRules": {
-      "quotes": ["error", "double"],
-      "indentation": ["error", 4]
-  },
+  "solidity.linter": "solhint",
   "gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm:ss",
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.hovers.currentLine.enabled": false,
@@ -133,7 +129,6 @@
   ],
   "typescript.tsserver.log": "verbose",
   "editor.find.autoFindInSelection": "multiline",
-  "gitlens.currentLine.enabled": false,
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "gitlens.views.repositories.location": "gitlens",
@@ -142,20 +137,28 @@
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
   "workbench.list.horizontalScrolling": true,
-  "bracketPairColorizer.forceUniqueOpeningColor": true,
-  "bracketPairColorizer.colorMode": "Consecutive",
-  "bracketPairColorizer.showBracketsInGutter": true,
-  "bracketPairColorizer.consecutivePairColors": [
-    "()",
-    "[]",
-    "{}",
-    [
+  "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+  "bracket-pair-colorizer-2.colorMode": "Consecutive",
+  "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "bracket-pair-colorizer-2.colors": [
       "SandyBrown",
       "MediumAquaMarine",
       "Plum",
     ],
-    "Red"
-  ],
   "todo-tree.tree.showScanModeButton": false,
   "python.insidersChannel": "off",
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.activityBarHideSettings": true,
+  "customizeUI.font.regular": "DejaVu Sans Condensed",
+  "python.languageServer": "Microsoft",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressGitDisabledWarning": true
+  },
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter-notebook",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
 }

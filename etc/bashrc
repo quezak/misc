@@ -3,8 +3,8 @@
 
 # history
 HISTCONTROL=ignoreboth
-HISTSIZE=50000
-HISTFILESIZE=50000
+HISTSIZE=500000
+HISTFILESIZE=500000
 shopt -s histappend
 shopt -s checkwinsize
 
@@ -92,15 +92,17 @@ alias docker-purge='docker rm $(docker ps -aq)'
 alias ts-node="npx ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false }' -r tsconfig-paths/register"
 alias git-clean-local-branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
 alias git-cdr='cd $(git rev-parse --show-toplevel)'
+alias rand_passwd="strings /dev/urandom | tr -dc '[:alnum:]' | head -c32; echo"
+alias rand_hex="strings /dev/urandom | tr -dc '0-9a-z' | head -c40; echo"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f /home/quezak/pkg/google-cloud-sdk/path.bash.inc ]; then
-  source '/home/quezak/pkg/google-cloud-sdk/path.bash.inc'
+if [ -f /home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/path.bash.inc ]; then
+  source '/home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/path.bash.inc'
 fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f /home/quezak/pkg/google-cloud-sdk/completion.bash.inc ]; then
-  source '/home/quezak/pkg/google-cloud-sdk/completion.bash.inc'
+if [ -f /home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/completion.bash.inc ]; then
+  source '/home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/completion.bash.inc'
 fi
 
 if [ -s /usr/share/nvm/nvm.sh ]; then
