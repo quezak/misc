@@ -6,5 +6,11 @@
 # kudos go there: https://unix.stackexchange.com/a/408792/185562
 
 echo "starting stream, ctrl-c to stop"
-DEV=${1:-/dev/video0}
-ffmpeg -f v4l2 -i ${DEV} -vf transpose=1 -f v4l2 -pix_fmt yuyv422 /dev/video9
+if [ "$1" = "-r" ]; then
+    TR_ARG=3
+    shift
+else
+    TR_ARG=1
+fi
+DEV=${1:-$(ls /dev/video* | head -1)}
+ffmpeg -f v4l2 -i ${DEV} -vf transpose=$TR_ARG -f v4l2 -pix_fmt yuyv422 /dev/video9
