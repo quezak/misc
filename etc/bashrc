@@ -120,3 +120,7 @@ function wttr() {
     curl "$request2"
 }
 
+# connect to system keyring for ssh agent if not done
+if [ -z "$SSH_AUTH_SOCK" ] && (ss -xl | grep -q "/run/user/$UID/keyring.*/ssh"); then
+    export SSH_AUTH_SOCK=$(ss -xl | grep -o "/run/user/$UID/keyring.*/ssh")
+fi
