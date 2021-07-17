@@ -3,7 +3,7 @@
   "telemetry.enableTelemetry": false,
   "typescript.preferences.quoteStyle": "single",
   "editor.fontFamily": "'Monoid'",
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
   "vim.useSystemClipboard": true,
   "vim.textwidth": 100,
   "editor.tokenColorCustomizations": {
@@ -69,7 +69,6 @@
     "editorLineNumber.activeForeground": "#e6b663",
   },
   "files.autoSave": "off",
-  "window.zoomLevel": 0,
   "vim.handleKeys": {
     "<C-w>": false,
     "<C-f>": false,
@@ -100,7 +99,15 @@
     "foreground": "black",
     "type": "tag"
   },
-  "todo-tree.general.tags": ["TODO", "FIXME", "XXX", "NOTE", "TBD"],
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "XXX",
+    "NOTE",
+    "TBD",
+    "[ ]",
+    "[x]"
+  ],
   "todo-tree.highlights.customHighlight": {
     "TODO": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
     "TBD": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
@@ -161,4 +168,8 @@
       "filenamePattern": "*.ipynb"
     }
   ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "eslint.options": {
+    "plugins": ["only-warn"]
+  },
 }

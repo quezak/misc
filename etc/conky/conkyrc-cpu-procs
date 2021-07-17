@@ -1,5 +1,8 @@
 -- vim: ft=conkyrc
+
 conky.config = {
+    lua_load = '/home/quezak/.conky/temps.lua',
+
 -- Window settings
 	background = true,
 	own_window = true,
@@ -37,9 +40,12 @@ conky.config = {
 	own_window_colour = 'brown',
 	own_window_transparent = true,
 
-	alignment = 'top_right',
-	gap_x = -240,
-	gap_y = -420,
+	-- alignment = 'top_right',
+	-- gap_x = -240,
+	-- gap_y = -178,
+	alignment = 'top_left',
+	gap_x = -1190,
+	gap_y = -258,
 	top_name_width = 14,
 };
 
@@ -47,9 +53,9 @@ conky.text = [[
 #CPU
 ${color1}${font poky:size=14}M${voffset -5}$font ${font M47_FIRE WIRE:size=12}cpu${hr 2}$font$color 
 # temps & freqs
-°C   ${color4}${hwmon 1 temp 2}   ${hwmon 1 temp 3}${alignr}${color4}${freq_g 1}   ${freq_g 2}   ${color}GHz
+°C avg ${color4}${lua avgcoretemp} ${color}max ${color4}${hwmon coretemp temp 1}${alignr}${color4}${freq_g 1}   ${freq_g 2}   ${color}GHz
 # fan & load
-${color}RPM   ${color4}${hwmon 2 fan 1} ${alignr}${color4}${loadavg}${color} load
+${color}RPM   ${color4} ${alignr}${color4}${loadavg}${color} load
 #${color}fan${goto 70}${color4}${platform w83627ehf.656 fan 2}${color} RPM${goto 135}thr$alignr$color4$running_threads$color of $color4$threads
 # cpubars
 ${voffset 0}\

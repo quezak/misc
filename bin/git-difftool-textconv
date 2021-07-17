@@ -1,0 +1,34 @@
+#!/bin/bash
+
+LOCAL="$1"
+REMOTE="$2"
+MERGED="$3"
+DIFFTYPE="$(git check-attr diff "$MERGED" | sed 's/.*diff: //')"
+DIFFTOOL=vimdiff
+
+function conv_error() {
+    if [ "$DIFFTYPE" = "ansible-vault-prod" ]; then
+        echo "$MERGED: prod vault decryption failed, diffing binary files instead" >&2
+        $DIFFTOOL "$LOCAL" "$REMOTE"
+        exit $?
+    fi
+    echo "$MERGED: $@" >&2
+    exit 1
+}
+
+if [ "$DIFFTYPE" != 'unspecified' ]; then
+    TEXTCONV=$(git config --get diff.${DIFFTYPE}.textconv)
+    if [ -n "$TEXTCONV" ]; then
+        echo "$MERGED: using diff $DIFFTYPE textconv"
+        LOCAL_CONV=$(mktemp)
+        REMOTE_CONV=$(mktemp)
+        $TEXTCONV "$LOCAL" > "$LOCAL_CONV" || conv_error "textconv $LOCAL failed"
+        $TEXTCONV "$REMOTE" > "$REMOTE_CONV" || conv_error "textconv $REMOTE failed"
+        $DIFFTOOL "$LOCAL_CONV" "$REMOTE_CONV"
+        rc=$?
+        rm -f "$LOCAL_CONV" "$REMOTE_CONV"
+        exit $rc
+    fi
+fi
+
+$DIFFTOOL "$LOCAL" "$REMOTE"

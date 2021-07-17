@@ -137,16 +137,16 @@ let g:localvimrc_persistent = 1
 
 " syntax fixes
 syn match Error '\s\+$'
-hi Debug ctermfg=darkgrey cterm=bold
-hi ColorColumn ctermbg=darkgrey
-hi CursorLine cterm=none ctermbg=darkgrey
-hi CursorLineNr ctermfg=yellow ctermbg=darkgrey cterm=inverse,bold
-hi DiffAdd ctermbg=darkgray ctermfg=green
-hi DiffChange ctermbg=darkgray
-hi DiffDelete ctermbg=darkgray ctermfg=red cterm=none
+hi Debug ctermfg=236 cterm=bold
+hi ColorColumn ctermbg=236
+hi CursorLine cterm=none ctermbg=236
+hi CursorLineNr ctermfg=yellow ctermbg=236 cterm=inverse,bold
+hi DiffAdd ctermbg=236 ctermfg=green
+hi DiffChange ctermbg=236
+hi DiffDelete ctermbg=236 ctermfg=red cterm=none
 hi DiffText ctermbg=none cterm=standout,bold
-hi LineNr ctermbg=darkgray
-hi Folded ctermbg=darkgray ctermfg=magenta cterm=bold
+hi LineNr ctermbg=236
+hi Folded ctermbg=236 ctermfg=magenta cterm=bold
 hi Constant ctermfg=red cterm=bold
 hi String ctermfg=red cterm=none
 hi link jsGlobalNodeObject Special

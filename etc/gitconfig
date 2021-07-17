@@ -13,25 +13,28 @@
     s = status
     ci = commit
     recommit = commit --amend
-    co = checkout
-    vd = difftool
     dt = difftool
     dts = difftool --staged
     lc = log-compact
     lcg = log-compact --graph
     branch-clean = remote prune origin
     recent-all = !git for-each-ref --color=always --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset)¬%(color:yellow)%(refname:short)%(color:reset)¬%(authorname)¬%(color:green)%(committerdate:relative)%(color:reset)¬%(contents:subject)' | column -ts'¬'
-    recent = !git recent-all | head
+    recent = !git recent-all | head $@
     purr = pull --rebase
+    pursh = !git purr && git push
 [core]
     pager = less
 	excludesfile = /home/quezak/.gitignore_global
 [diff]
-    tool = vimdiff
+    tool = git-difftool-textconv
     trustExitCode = true
 [difftool]
     prompt = false
     trustExitCode = true
+[difftool "git-difftool-textconv"]
+    prompt = false
+    trustExitCode = true
+    cmd = "git-difftool-textconv $LOCAL $REMOTE $MERGED"
 [push]
     default = current
 [log-compact]

@@ -1,0 +1,10 @@
+function conky_avgcoretemp()
+    -- temp 1 is 'package' (== max core temp)
+    local t2 = conky_parse("${hwmon coretemp temp 2}")
+    local t3 = conky_parse("${hwmon coretemp temp 3}")
+    local t4 = conky_parse("${hwmon coretemp temp 4}")
+    local t5 = conky_parse("${hwmon coretemp temp 5}")
+    local t6 = conky_parse("${hwmon coretemp temp 6}")
+    local t7 = conky_parse("${hwmon coretemp temp 7}")
+    return math.floor((t2 + t3 + t4 + t5 + t6 + t7) / 6 + 0.5)
+end

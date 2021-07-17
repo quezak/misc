@@ -12,5 +12,11 @@ if [ "$1" = "-r" ]; then
 else
     TR_ARG=1
 fi
+if [  "$1" = "-n" ]; then
+    VF_ARG=''
+    shift
+else
+    VF_ARG="-vf transpose=$TR_ARG"
+fi
 DEV=${1:-$(ls /dev/video* | head -1)}
-ffmpeg -f v4l2 -i ${DEV} -vf transpose=$TR_ARG -f v4l2 -pix_fmt yuyv422 /dev/video9
+ffmpeg -f v4l2 -i ${DEV} $VF_ARG -f v4l2 -pix_fmt yuyv422 /dev/video9
