@@ -92,8 +92,6 @@ alias docker-purge='docker rm $(docker ps -aq)'
 alias ts-node="npx ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false, \"target\": \"es2017\" }' -r tsconfig-paths/register"
 alias git-clean-local-branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
 alias git-cdr='cd $(git rev-parse --show-toplevel)'
-alias rand_passwd="strings /dev/urandom | tr -dc '[:alnum:]' | head -c32; echo"
-alias rand_hex="strings /dev/urandom | tr -dc '0-9a-z' | head -c40; echo"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/path.bash.inc ]; then
@@ -105,13 +103,6 @@ if [ -f /home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/goo
   source '/home/quezak/.cache/pacaur/google-cloud-sdk/pkg/google-cloud-sdk/opt/google-cloud-sdk/completion.bash.inc'
 fi
 
-if [ -s /usr/share/nvm/nvm.sh ]; then
-    export NVM_DIR="$HOME/.nvm"
-    source /usr/share/nvm/nvm.sh
-    source /usr/share/nvm/bash_completion
-    source /usr/share/nvm/install-nvm-exec
-fi
-
 function wttr() {
     local request="wttr.in/${1-Warsaw}"
     local request2="${request}?format=v2"
@@ -120,7 +111,30 @@ function wttr() {
     curl "$request2"
 }
 
+function rand_passwd() {
+    local LEN=${1:-32}
+    strings /dev/urandom | tr -dc '[:alnum:]' | head -c$LEN
+    echo
+}
+
+function rand_hex() {
+    local LEN=${1:-32}
+    strings /dev/urandom | tr -dc '0-9a-f' | head -c$LEN
+    echo
+}
+
 # connect to system keyring for ssh agent if not done
 if [ -z "$SSH_AUTH_SOCK" ] && (ss -xl | grep -q "/run/user/$UID/keyring.*/ssh"); then
     export SSH_AUTH_SOCK=$(ss -xl | grep -o "/run/user/$UID/keyring.*/ssh")
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export CLOUDSDK_PYTHON=python3
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+export RAMP_BYOC_MODE=1
+export RAMP_BLOCKEND_STUB_MODE=1
