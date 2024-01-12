@@ -59,7 +59,7 @@
         "scope": "variable.other.special.shell",
         "settings": { "foreground": "#9077b4" }
       }
-    ]
+    ],
   },
   "workbench.colorCustomizations": {
     "editor.foreground": "#a9b7c6",
@@ -67,23 +67,30 @@
     "editorGutter.background": "#2b2b2b",
     "editorLineNumber.foreground": "#ad8d4b",
     "editorLineNumber.activeForeground": "#e6b663",
+    "editorBracketHighlight.foreground1": "#f4a460",
+    "editorBracketHighlight.foreground2": "#66ddaa",
+    "editorBracketHighlight.foreground3": "#DDA0DD",
+    "editorIndentGuide.activeBackground": "#85ba5d",
+    "editorBracketMatch.border": "#53664e",
+    "editorBracketMatch.background": "#53664e",
   },
   "files.autoSave": "off",
   "vim.handleKeys": {
-    "<C-w>": false,
+    "<C-a>": false,
+    "<C-b>": false,
+    "<C-c>": false,
+    "<C-d>": false,
     "<C-f>": false,
     "<C-h>": false,
-    "<C-r>": false,
-    "<C-z>": false,
-    "<C-y>": false,
-    "<C-c>": false,
-    "<C-x>": false,
-    "<C-v>": false,
-    "<C-b>": false,
-    "<C-o>": false,
     "<C-k>": false,
-    "<C-d>": false,
-    "<C-a>": false,
+    "<C-o>": false,
+    "<C-p>": false,
+    "<C-r>": false,
+    "<C-v>": false,
+    "<C-w>": false,
+    "<C-x>": false,
+    "<C-y>": false,
+    "<C-z>": false,
     "<C-space>": false,
   },
   "solidity.linter": "solhint",
@@ -125,8 +132,8 @@
     "**/node_modules": true
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports": false,
-    "source.fixAll.eslint": true
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit"
   },
   "editor.minimap.enabled": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
@@ -134,7 +141,7 @@
   "editor.rulers": [
     100
   ],
-  "typescript.tsserver.log": "verbose",
+  "typescript.tsserver.log": "off",
   "editor.find.autoFindInSelection": "multiline",
   "gitlens.defaultDateStyle": "absolute",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
@@ -162,14 +169,48 @@
   "gitlens.advanced.messages": {
     "suppressGitDisabledWarning": true
   },
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter-notebook",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "eslint.options": {
-    "plugins": ["only-warn"]
+    "overrideConfig": {
+      "plugins": ["only-warn"]
+    }
   },
+  "openapi.securityAuditToken": "CiBb/4Ce9O95t06m9uO4smaLgGQRScftX/ddcllG0njZkBIYXlfd1ZvtYDP5OHdCN+ccpU7W+c7xutwiGnPlBZvirHB+huUigKfgnnPoGrHn354wbB5FwCWnTVm2UF54FfPXy8L4LvA3zpogQ3m1e8R4ODgnbVxZ4MpRrHrnbRS/TiZ6HUZrIChzvPMNo5sDWUbcLByxwnF/WL6uTrgYIlFKu9aJT34IHnVtonozr9BF",
+  "editor.bracketPairColorization.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "editor.inlayHints.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.files.associations": {
+    "*.type-spec.ts": "Test-ts",
+    "*.e2e-spec.ts": "Test-ts",
+  },
+  "jest.shell": "/bin/bash",
+  "jest.jestCommandLine": "source ~/.nvm/nvm.sh && yarn env-cmd -f ../../.env run test",
+  "jest.autoRun": "off",
+  "git.autofetch": true,
+  "editor.stickyScroll.enabled": true,
+  "githubPullRequests.pullBranch": "never",
+  "material-icon-theme.activeIconPack": "nest",
+  "eslint.run": "onSave",
+  "stylelint.packageManager": "yarn",
+  "npm.packageManager": "yarn",
+  "terminal.external.linuxExec": "mate-terminal",
+  "terminal.integrated.fontSize": 12,
+  "vim.statusBarColorControl": false,
+  "vim.foldfix": false,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "diffEditor.renderSideBySide": false,
 }
