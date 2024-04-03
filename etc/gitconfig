@@ -1,6 +1,7 @@
 [user]
     #name =
     #email =
+	signingkey = /home/arturkozak/.ssh/id_ed25519.pub
 [color]
     ui = true
 [merge]
@@ -41,3 +42,7 @@
 	defaults = --decorate
 [pull]
 	rebase = false
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

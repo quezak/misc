@@ -89,7 +89,7 @@ alias mount_ntfs='sudo mount -o umask=022,noatime,uid=1000,gid=1000'
 alias lsemerging='find /var/tmp/portage -maxdepth 2 -mindepth 2 -type d'
 alias dirsizes='find -mindepth 1 -maxdepth 1 -type d | xargs du -sh'
 alias docker-purge='docker rm $(docker ps -aq)'
-alias ts-node="npx ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false, \"target\": \"es2017\" }' -r tsconfig-paths/register"
+alias ts-node="npx ts-node -O '{ \"noUnusedLocals\": false, \"noUnusedParameters\": false, \"target\": \"es2017\", \"isolatedModules\": false }' -r tsconfig-paths/register"
 alias git-clean-local-branches="git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
 alias git-cdr='cd $(git rev-parse --show-toplevel)'
 
