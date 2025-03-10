@@ -27,17 +27,14 @@
     pager = less
 	excludesfile = /home/quezak/.gitignore_global
 [diff]
-    tool = git-difftool-textconv
+    tool = vimdiff
     trustExitCode = true
 [difftool]
     prompt = false
     trustExitCode = true
-[difftool "git-difftool-textconv"]
-    prompt = false
-    trustExitCode = true
-    cmd = "git-difftool-textconv $LOCAL $REMOTE $MERGED"
 [push]
     default = current
+    autoSetupRemote = true
 [log-compact]
 	defaults = --decorate
 [pull]

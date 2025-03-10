@@ -2,7 +2,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "typescript.preferences.quoteStyle": "single",
-  "editor.fontFamily": "'Monoid'",
+  "editor.fontFamily": "Monoid",
   "editor.fontSize": 12,
   "vim.useSystemClipboard": true,
   "vim.textwidth": 100,
@@ -17,7 +17,7 @@
     "textMateRules": [
       {
         "scope": "support.type.property-name",
-        "settings": { "foreground": "#ffc66d"}
+        "settings": { "foreground": "#ffc66d" }
       },
       {
         "scope": "meta.type.annotation",
@@ -49,7 +49,7 @@
       },
       {
         "scope": "meta.object-literal.key",
-        "settings": { "foreground": "#42cec7"}
+        "settings": { "foreground": "#42cec7" }
       },
       {
         "scope": "variable.other.normal.shell",
@@ -116,11 +116,27 @@
     "[x]"
   ],
   "todo-tree.highlights.customHighlight": {
-    "TODO": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
-    "TBD": { "icon": "check", "iconColour": "#ffc66d", "background": "#ffc66d" },
-    "FIXME": { "icon": "beaker", "iconColour": "#bb632e", "background": "#bb632e" },
-    "XXX": { "icon": "alert", "iconColour": "#bb2c17", "background": "#bb2c17" },
-    "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" },
+    "TODO": {
+      "icon": "check",
+      "iconColour": "#ffc66d",
+      "background": "#ffc66d"
+    },
+    "TBD": {
+      "icon": "check",
+      "iconColour": "#ffc66d",
+      "background": "#ffc66d"
+    },
+    "FIXME": {
+      "icon": "beaker",
+      "iconColour": "#bb632e",
+      "background": "#bb632e"
+    },
+    "XXX": {
+      "icon": "alert",
+      "iconColour": "#bb2c17",
+      "background": "#bb2c17"
+    },
+    "NOTE": { "icon": "note", "iconColour": "#70b230", "background": "#70b230" }
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
   "editor.fontLigatures": true,
@@ -131,16 +147,10 @@
   "files.exclude": {
     "**/node_modules": true
   },
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "never",
-    "source.fixAll.eslint": "explicit"
-  },
   "editor.minimap.enabled": false,
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "typescript.tsserver.log": "off",
   "editor.find.autoFindInSelection": "multiline",
   "gitlens.defaultDateStyle": "absolute",
@@ -154,20 +164,17 @@
   "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
   "bracket-pair-colorizer-2.colorMode": "Consecutive",
   "bracket-pair-colorizer-2.showBracketsInGutter": true,
-  "bracket-pair-colorizer-2.colors": [
-      "SandyBrown",
-      "MediumAquaMarine",
-      "Plum",
-    ],
+  "bracket-pair-colorizer-2.colors": ["SandyBrown", "MediumAquaMarine", "Plum"],
   "todo-tree.tree.showScanModeButton": false,
   "python.insidersChannel": "off",
   "customizeUI.activityBar": "bottom",
   "customizeUI.activityBarHideSettings": true,
   "customizeUI.font.regular": "DejaVu Sans Condensed",
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Default",
   "gitlens.currentLine.enabled": false,
   "gitlens.advanced.messages": {
-    "suppressGitDisabledWarning": true
+    "suppressGitDisabledWarning": true,
+    "suppressIntegrationRequestTimedOutWarning": true
   },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
@@ -187,9 +194,6 @@
   "typescript.inlayHints.variableTypes.enabled": false,
   "redhat.telemetry.enabled": false,
   "editor.inlayHints.enabled": false,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.files.associations": {
     "*.type-spec.ts": "Test-ts",
@@ -212,5 +216,7 @@
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
-  "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySide": true,
+  "files.simpleDialog.enable": true,
+  "diffEditor.ignoreTrimWhitespace": false
 }
